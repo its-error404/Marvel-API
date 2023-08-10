@@ -1,0 +1,17 @@
+#characters-grid
+{
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px;
+    gap: 10px;
+}
+
+.character-container
+{
+    border: solid red 1px;
+}
+
+.character-link
+{
+    text-decoration: none;
+    color: yellow;
+}
