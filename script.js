@@ -40,9 +40,7 @@ const fetchSingleCharacter = (e) => {
   e.preventDefault();
 
   const characterNameInput = document.getElementById("characterName").value;
-  console.log("Character Name:", characterNameInput);
   const apiSingleCharacter = `https://gateway.marvel.com/v1/public/characters?ts=${timeStamp}&apikey=${publicKey}&hash=${MD5Hash}&name=${encodeURIComponent(characterNameInput)}`;
-  console.log("API URL:", apiSingleCharacter);
 
   fetch(apiSingleCharacter)
     .then((response) => response.json())
@@ -86,6 +84,20 @@ const publicKey = "6cda15d0c3c12522a4d8a70197c4103f";
         console.log("Error while fetching the data", error);
     })};
 
+
+//Search Character Logic
+
+searchButton.addEventListener("click", () => {
+  console.log(searchInput.value)
+  const searchQuery = searchInput.value.trim();
+  console.log(searchQuery)
+
+  
+  if (searchQuery !== "") {
+    fetchCharactersByNameStartsWith(searchQuery);
+  }
+});
+
 //Character Card Creation
 
 const createCharacterCard = (character) => {
@@ -114,17 +126,4 @@ displayAllCharactersButton.addEventListener("click", () => {
 
 displaySingleCharacterButton.addEventListener("submit", (e) => {
   fetchSingleCharacter(e);
-});
-
-//Search Character Logic
-
-searchButton.addEventListener("click", () => {
-  console.log(searchInput.value)
-  const searchQuery = searchInput.value.trim();
-  console.log(searchQuery)
-
-  
-  if (searchQuery !== "") {
-    fetchCharactersByNameStartsWith(searchQuery);
-  }
 });
