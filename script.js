@@ -32,7 +32,6 @@ $(document).ready(() => {
 
   const fetchSingleCharacter = (e) => {
     clearCharacterGrid();
-    e.preventDefault();
 
     const characterName = $("#characterName").val();
     const apiSingleCharacter = `https://gateway.marvel.com/v1/public/characters?ts=${timeStamp}&apikey=${publicKey}&hash=${MD5Hash}&name=${encodeURIComponent(
