@@ -8,14 +8,23 @@ $(document).ready(() => {
     const characterGrid = $("#character-grid");
     const searchInput = $("#search-input");
 
+    const clearCharacterGrid = () =>
+    {
+        characterGrid.empty()
+    }
+
     const fetchAllCharacters = () => {
+        clearCharacterGrid();
         $.ajax({
+            
             url: apiAllCharacters,
             method: 'GET',
             success: (data) => {
+                console.log('hi')
                 const characters = data.data.results;
 
                 characters.forEach((character) => {
+                    console.log('hi')
                     createCharacterCard(character);
                 });
             },
@@ -26,7 +35,9 @@ $(document).ready(() => {
     };
 
     const fetchSingleCharacter = (e) => {
+        clearCharacterGrid();
         e.preventDefault();
+        
         const characterName = $('#characterName').val();
         const apiSingleCharacter = `https://gateway.marvel.com/v1/public/characters?ts=${timeStamp}&apikey=${publicKey}&hash=${MD5Hash}&name=${encodeURIComponent(characterName)}`;
 
@@ -44,10 +55,12 @@ $(document).ready(() => {
     };
 
     const fetchCharacterByNameStartsWith = (searchQuery) => {
+        clearCharacterGrid();
         $.ajax({
             url: `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${encodeURIComponent(searchQuery)}&apikey=${publicKey}&hash=${MD5Hash}&ts=${timeStamp}`,
             method: 'GET',
             success: (data) => {
+                console.log("hii")
                 const characters = data.data.results;
                 characters.forEach((character) => {
                     createCharacterCard(character);
