@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel API Characters</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <h1 class="header">Marvel Character Display</h1>
+
+    <div class="form">
+        <form id="character-form">
+            Character name: <input type="text" id="characterName" name="characterName"><br><br>
+            <input type="submit" value="Submit" id="submit-button">
+        </form>
+    </div>
+
+    <div id="search-bar">
+        <h1>Comics Search</h1>
+        <input type="text" id="search-input" placeholder="Search characters...">
+        <button id="search-button">Search</button>
+    </div>
+
+    <div class="button-container">
+        <button id="multiple-button">Display All Characters</button>
+    </div>
+
+    <div id="character-grid" class="container"></div>
+
+</body>
+
+</html>
