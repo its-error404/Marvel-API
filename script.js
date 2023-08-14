@@ -79,6 +79,7 @@ $(document).ready(() => {
   $("#multiple-button").on("click", fetchAllCharacters);
 
   $("#character-form").on("submit", (e) => {
+    e.preventDefault()
     fetchSingleCharacter(e);
   });
 
